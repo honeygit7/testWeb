@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    footer{position: absolute; bottom:0; width: 100%; height:30px; background-color: yellow;}
+    .landscape footer{position: relative}
+  </style>
+</head>
+<body>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iste debitis sed accusantium consectetur atque, libero praesentium non perspiciatis est totam id, voluptatem necessitatibus. Iste delectus suscipit qui repudiandae molestias!
+  <img src="testApp.PNG" alt="">
+  <img src="testAppDummy.png" alt="dummy">
+  <footer>footer</footer>
+  <script src="./jquery-1.11.3.min.js"></script>
+  <script>
+    $(window).on('resize load orientationchange', function() {
+      if (typeof window.orientation !== 'undefined') {
+        if(window.orientation === 90 || window.orientation === -90) {
+          $('body').addClass('landscape');
+        } else { // portrait: 0
+          $('body').removeClass('landscape');
+        } 
+      }
+    });
+
+    $(function() {
+      $(window).trigger('orientationchange');
+    })
+  </script>
+</body>
+</html>
