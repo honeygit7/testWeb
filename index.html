@@ -10,6 +10,10 @@
 
   <title>키패드 감지 테스트</title>
 
+  <style>
+    body{background-color: yellow;}
+  </style>
+
 </head>
 
 <body>
@@ -36,11 +40,11 @@
 
       if (window.innerHeight < originalHeight) {
 
-       alert("키패드 열림 추정");
+       document.body.innerHTML = "키패드 열림 추정";
 
       } else {
 
-       alert("키패드 닫힘 추정");
+        document.body.innerHTML = "키패드 닫힘 추정";
 
       }
 
