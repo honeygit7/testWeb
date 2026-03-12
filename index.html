@@ -20,23 +20,18 @@
 
   <h1>키패드 열림/닫힘 테스트</h1>
 
-
-
   <input type="text" placeholder="여기에 텍스트를 입력해보세요" id="inputField">
-
-
 
   <script>
 
     // 원래 화면 높이 저장
-
     let originalHeight = window.innerHeight;
-
-
 
     // 화면 크기 변화 감지
 
     window.addEventListener("resize", () => {
+
+      document.body.innerHTML = '리사이즈';
 
       if (window.innerHeight < originalHeight) {
 
