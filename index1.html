@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>키패드 감지 테스트</title>
+
+<style>
+body{
+font-family: Arial;
+padding:20px;
+}
+#status{
+margin-top:20px;
+padding:15px;
+border:1px solid #ccc;
+font-size:18px;
+background:#f5f5f5;
+}
+</style>
+
+</head>
+<body>
+
+<h2>키패드 감지 테스트</h2>
+
+<input type="text" id="inputField" placeholder="여기를 눌러 키패드 열기">
+
+<div id="status">
+상태: 대기중
+</div>
+
+<script>
+
+let originalHeight = window.innerHeight
+let isKeyboardVisible = false
+
+const status = document.getElementById("status")
+const input = document.getElementById("inputField")
+
+function updateText(text){
+status.innerText = "상태: " + text +
+"\n현재 높이: " + window.innerHeight +
+"\n초기 높이: " + originalHeight
+}
+
+// resize 감지
+window.addEventListener("resize", () => {
+
+if(window.innerHeight < originalHeight){
+
+if(!isKeyboardVisible){
+isKeyboardVisible = true
+updateText("키패드 열림 (resize 감지)")
+}
+
+}else{
+
+if(isKeyboardVisible){
+isKeyboardVisible = false
+updateText("키패드 닫힘 (resize 감지)")
+}
+
+}
+
+})
+
+// focus 감지
+input.addEventListener("focus", () => {
+
+if(!isKeyboardVisible){
+isKeyboardVisible = true
+updateText("키패드 열림 (focus 감지)")
+}
+
+})
+
+// blur 감지
+input.addEventListener("blur", () => {
+
+if(isKeyboardVisible){
+isKeyboardVisible = false
+updateText("키패드 닫힘 (blur 감지)")
+}
+
+})
+
+</script>
+
+</body>
+</html>
