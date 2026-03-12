@@ -1,53 +1,91 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>키패드 감지 테스트</title>
 
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>키패드 감지 테스트</title>
-
-  <style>
-    body{background-color: yellow;}
-  </style>
+<style>
+body{
+font-family: Arial;
+padding:20px;
+}
+#status{
+margin-top:20px;
+padding:15px;
+border:1px solid #ccc;
+font-size:18px;
+background:#f5f5f5;
+}
+</style>
 
 </head>
-
 <body>
 
-  <h1>키패드 열림/닫힘 테스트</h1>
+<h2>키패드 감지 테스트</h2>
 
-  <input type="text" placeholder="여기에 텍스트를 입력해보세요" id="inputField">
+<input type="text" id="inputField" placeholder="여기를 눌러 키패드 열기">
 
-  <script>
+<div id="status">
+상태: 대기중
+</div>
 
-    // 원래 화면 높이 저장
-    let originalHeight = window.innerHeight;
+<script>
 
-    // 화면 크기 변화 감지
+let originalHeight = window.innerHeight
+let isKeyboardVisible = false
 
-    window.addEventListener("resize", () => {
+const status = document.getElementById("status")
+const input = document.getElementById("inputField")
 
-      document.body.innerHTML = '리사이즈';
+function updateText(text){
+status.innerText = "상태: " + text +
+"\n현재 높이: " + window.innerHeight +
+"\n초기 높이: " + originalHeight
+}
 
-      if (window.innerHeight < originalHeight) {
+// resize 감지
+window.addEventListener("resize", () => {
 
-       document.body.innerHTML = "키패드 열림 추정";
+if(window.innerHeight < originalHeight){
 
-      } else {
+if(!isKeyboardVisible){
+isKeyboardVisible = true
+updateText("키패드 열림 (resize 감지)")
+}
 
-        document.body.innerHTML = "키패드 닫힘 추정";
+}else{
 
-      }
+if(isKeyboardVisible){
+isKeyboardVisible = false
+updateText("키패드 닫힘 (resize 감지)")
+}
 
-    });
+}
 
-  </script>
+})
+
+// focus 감지
+input.addEventListener("focus", () => {
+
+if(!isKeyboardVisible){
+isKeyboardVisible = true
+updateText("키패드 열림 (focus 감지)")
+}
+
+})
+
+// blur 감지
+input.addEventListener("blur", () => {
+
+if(isKeyboardVisible){
+isKeyboardVisible = false
+updateText("키패드 닫힘 (blur 감지)")
+}
+
+})
+
+</script>
 
 </body>
-
 </html>
-
