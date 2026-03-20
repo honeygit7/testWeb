@@ -133,7 +133,10 @@
                 li.className = "chat_item"; // 기존 샘플과 동일하게 통일
 
                 const html = marked.parse(data.answer);
-                const safeHtml = DOMPurify.sanitize(html);
+                const sanitizer = window.DOMPurify && typeof window.DOMPurify.sanitize === 'function'
+                    ? window.DOMPurify.sanitize
+                    : (unsafeHtml) => unsafeHtml;
+                const safeHtml = sanitizer(html);
 
                 li.innerHTML = `
                 <div class="question">${data.question}</div>
