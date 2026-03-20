@@ -168,14 +168,18 @@
                 const response = createMockResponse(inputText);
                 renderChat(response);
 
-                li.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                // 가장 마지막에 추가된 채팅 항목에 스크롤
+                const lastItem = chatList.querySelector('li.chat_item:last-child');
+                if (lastItem) {
+                    lastItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
 
                 /*
                 requestAnimationFrame(() => {
-                    chatList.scrollTop = li.offsetTop;
+                    chatList.scrollTop = lastItem ? lastItem.offsetTop : 0;
                 });
                 */
 
