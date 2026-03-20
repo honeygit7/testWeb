@@ -112,18 +112,19 @@
 
             // mock JSON 생성 함수(서버 대신)
             function createMockResponse(question) {
+                const markdown = `
+## 📌 답변
+- 이건 mock 응답입니다
+- 사용자가 입력한 내용 기반으로 생성됨
+
+* 리스트1
+* 리스트2
+
+문장 텍스트입니다.
+`;
                 return {
                     question: question,
-                    answer: `
-                        ## 📌 답변
-                        - 이건 mock 응답입니다
-                        - 사용자가 입력한 내용 기반으로 생성됨
-
-                        * 리스트1
-                        * 리스트2
-                        * 
-                        문장 텍스트입니다.
-                    `
+                    answer: markdown.trim()
                 };
             }
 
