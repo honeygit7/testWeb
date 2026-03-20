@@ -41,7 +41,7 @@
         .chat_list .answer{overflow-x:hidden;margin-top:1rem;}
 
         .chat_input{display:flex;gap:0.5rem;margin:0 auto;min-height:5.6rem;justify-content:space-between;align-items:center;width:100%;padding:0.8rem;background:#fff;}
-        .chat_input texarea{flex:1;}
+        .chat_input textarea{flex:1;}
         .chat_input button{width:3rem;height:100%;text-align:center;}
 
         textarea {
@@ -54,6 +54,8 @@
             box-sizing: border-box;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js" integrity="sha512-FT8QqmANwP0xYk8ma1ilz+8jGgIq5TrtC/gGZsNKKkLSy1lHV4c67jTPgs7fm8ilZX4KYZLE6nt2mDnlb7Us9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body id="wrap">
     <div class="inner">
@@ -95,10 +97,12 @@
             const chatList = document.querySelector('.chat_list');
             const chatInput = document.querySelector('#chatInput');
             const chatBtn = document.querySelector('#btnChat');
+            const MAX_HEIGHT = 200; // textarea max-height(px)
 
             // 입력필드 높이 자동 조절
-            chatInput.addEventListener('input', () => {
-                this.style.height = Math.min(this.scrollHeight, MAX_HEIGHT) + 'px'; // scrollHeight와 max-height(css:200px 설정된 값)을 비교해서 작은 값을 선택해 사용함
+            chatInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, MAX_HEIGHT) + 'px';
             });
 
             // 전송 버튼
@@ -106,12 +110,40 @@
                 createChat();
             });
 
-            /*
-            chatBtn.addEventListener('keypress', function(e) {
-                if(e.key === 'Enter') createChat();
-            });
-            */
+            // mock JSON 생성 함수(서버 대신)
+            function createMockResponse(question) {
+                return {
+                    question: question,
+                    answer: `
+                        ## 📌 답변
+                        - 이건 mock 응답입니다
+                        - 사용자가 입력한 내용 기반으로 생성됨
 
+                        * 리스트1
+                        * 리스트2
+                        * 
+                        문장 텍스트입니다.
+                    `
+                };
+            }
+
+            // ✅ 렌더 함수
+            function renderChat(data) {
+                const li = document.createElement("li");
+                li.className = "chat_item"; // 기존 샘플과 동일하게 통일
+
+                const html = marked.parse(data.answer);
+                const safeHtml = DOMPurify.sanitize(html);
+
+                li.innerHTML = `
+                <div class="question">${data.question}</div>
+                <div class="answer">${safeHtml}</div>
+                `;
+
+                chatList.appendChild(li);
+            }
+
+            // 사용자 질문
             function createChat() {
                 const inputText = chatInput.value.trim();
                 if(!inputText) return;
@@ -120,6 +152,10 @@
                 document.querySelectorAll('.chat_list li').forEach(item => {
                     item.style.height = '';
                 });
+
+                // mock 응답 생성
+                const response = createMockResponse(inputText);
+                renderChat(response);
 
                 // 새 메시지 생성
                 const qText = `
@@ -156,7 +192,7 @@
 
                 // 입력 필드 초기화
                 chatInput.value = '';
-                this.style.height = 'auto'; // 높이 초기화
+                chatInput.style.height = 'auto'; // 높이 초기화
                 chatInput.focus();
             }
         })();
