@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>KCB 신용 AI | 올크레딧</title>
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="https://www.allcredit.co.kr/m/style/css/style.css">
+        <script type="text/javascript" src="https://www.allcredit.co.kr/m/js/lib/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="https://www.allcredit.co.kr/m/js/lib/plugins.js"></script>
+        <script type="text/javascript" src="https://www.allcredit.co.kr/m/js/default.js"></script>
+    </head>
+    <body>
+        <!-- skip navigation -->
+        <div class="skipNavi">
+            <a href="#content"><span>본문 바로가기</span></a>
+            <a href="#allMenu"><span>전체메뉴 바로가기</span></a>
+        </div>
+        <!--// skip navigation -->
+
+        <div class="wrap kcbChatbot">
+            <!-- header -->
+            <header>
+                <h1 class="blind">KCB 신용 AI 올크레딧</h1>
+                <h2>KCB 신용 AI</h2>
+                <a href="#" class="popClose" style="padding-top: 15px;">KCB 신용 AI 닫기</a>
+            </header>
+            <!--// header -->
+
+<script>
+$(function(){
+    $('#msgInput').on('propertyChange change keyup paste input', function(){
+        $(this).height(1).height($('textarea').prop('scrollHeight'));
+    })
+})
+</script>
+
+
+<style>
+/* 로딩 */
+.loadingAI{display: block;font-size: 0;line-height: 0;}
+.loadingAI:before,
+.loadingAI:after,
+.loadingAI .dot {display: inline-block;content: '';width: 8px;height: 8px;margin: 0 3px;background: #faa300;animation: dotAnim 1s infinite cubic-bezier(.07,.32,.45,.99);border-radius: 50%;}
+.loadingAI:before {animation-delay: -.6s}
+.loadingAI .dot {animation-delay: -.4s}
+.loadingAI:after {animation-delay: -.2s}
+@keyframes dotAnim {
+    0% {
+        opacity: 1;
+    } 33% {
+        opacity: .7;
+    } 70% {
+        opacity: 0.5;
+    } to {
+        opacity: 0.3;
+    }
+}
+/* //로딩 */
+
+header{position: absolute;left: 0;top: 0;width: 100%;background-color: #fff;border-bottom: 0;paddin-top:0;z-index:1000}
+header h2{padding-top:5px;}
+
+.wrap.kcbChatbot{min-height: auto;height: 100vh;height: 100dvh;}
+.wrap.kcbChatbot .container{}
+
+/* 컨텐츠 */
+html, body, .content, .container{height: 100%;}
+
+.wrapAI{display: flex;flex-direction: column;height: 100vh;height: 100dvh;}
+.msgCont{padding: 55px 20px 20px 20px;flex:1;overflow-y: auto;}
+
+/* 하단 입력창 */
+.bottomCont{flex-direction: column-reverse;}
+.inputCont{padding: 20px 20px 20px 20px;background: #f5f5f5;}
+
+.inputCont .txtAreaBox{display: flex;position: relative;padding: 13px 12px;border-radius: 6px;background: #fff;align-items: center;}
+.inputCont .txtAreaBox textarea{flex:1;font-size: 13px;color: #444;height: 20px;min-height: auto;max-height:100px;padding: 0 45px 0 0;word-wrap: break-word;white-space: break-spaces;background: transparent;border: 0;scrollbar-width: thin;}
+.inputCont .txtAreaBox button{position: absolute;right: 12px;bottom: 7px;width: 31px;height: 31px;border-radius: 50%;}
+.inputCont .txtAreaBox button span{display: block;font-size: 0;line-height: 0;height: 100%;background: url('assets/images/btn_submit.png') no-repeat 0 0;background-size: 31px auto;}
+.inputCont .txtAreaBox button:disabled span{background-image: url('assets/images/btn_submit_disabled.png');}
+.inputCont .txtAreaBox button.stop span{background-image: url('assets/images/btn_submit_stop.png');}
+
+
+/* 대화 영역 */
+.userMsg{width: 100%;padding-left: 20%;text-align: right;margin-top: 10px;}
+.userMsg > span{display: inline-block;font-size: 14px;color: #444;background: #edf3ff;padding: 20px 15px;border-radius: 15px;word-break: keep-all;}
+.userMsg > span > span{display: block;text-align: left;}
+
+/* AI 답변 영역 */
+.markDownBody{margin-top: 20px;font-size: 14px;line-height: 23px;}
+.markDownBody > p{margin-top: 20px;}
+.markDownBody ol{padding: 0 0 0 20px !important;margin-top: 30px;}
+.markDownBody ol > li{list-style: decimal !important;list-style-type: decimal !important;padding: initial !important;}
+
+.markDownBody ul{padding: 0 0 0 20px !important;margin-top: 30px;}
+.markDownBody ul > li{list-style: disc !important;list-style-type: disc !important;padding: initial !important;}
+
+.markDownBody ol > li > ul,
+.markDownBody ul > li > ol{margin-top: 0;}
+
+</style>
+
+
+
+            <div class="container">
+                <!-- content -->
+                <div id="content" class="sub" aria-label="본문">
+                    <div class="wrapAI">
+                        <div class="msgCont">
+
+                            <!-- msgArea -->
+                            <div class="msgArea">
+
+                                <!-- userMsg -->
+                                <div class="userMsg">
+                                    <span>내 보유 카드 뭐있지1</span>
+                                </div>
+                                <!-- //userMsg -->
+
+                                <!-- markDownBody -->
+                                <div class="markDownBody">
+
+                                    <!-- loading -->
+                                    <span class="loadingAI"><span class="dot"></span></span>
+                                    <!-- //loading -->
+
+                                    <ol>
+                                        <li>숫자 타입</li>
+                                        <li>숫자 타입</li>
+                                    </ol>
+
+                                    <ol>
+                                        <li>숫자 도트 순서
+                                            <ul>
+                                                <li>도트가 나옴</li>
+                                            </ul>
+                                        </li>
+                                        <li>숫자</li>
+                                    </ol>
+
+                                </div>
+                                <!-- //markDownBody -->
+                            </div>
+                            <!-- //msgArea -->
+
+
+                            <div class="msgArea">
+
+                                <div class="userMsg">
+                                    <span>
+                                        <span>
+                                            질문을 하려고 하는데 질문을 뭘 해야 할지 몰라서 질문을 생각중인데 뭘 생각 해야 하지 니가 할수 있는일을 물어볼까 말까
+                                            안녕하세요. 가나다라마바사과 먹어야지 맛있으니까 맛있으면 바나나 바나나는 길어 길면 기차 기차는 빨라 빠르면 비행기 비행기는 높아 높으면 백두산
+                                        </span>
+                                    </span>
+                                </div>
+
+
+                                <div class="markDownBody">
+                                    <p>고객님이 보유하신 카드는 총 4건이며, 아래와 같이 확인됩니다.</p>
+                                    <p><strong>기관</strong> : 농협은행(카드)/ 거래형태명 : 체크 / 총이용금액 : 0원 / 개설일자 : 20210315</p>
+                                    <p><strong>기관</strong> : 농협은행(카드)/ 거래형태명 : 체크 / 총이용금액 : 0원 / 개설일자 : 20210315</p>
+                                    <ul>
+                                        <li>도트 숫자 순서
+                                            <ol>
+                                                <li>숫자가 나옴</li>
+                                                <li>숫자가 나옴</li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+
+<style>
+.addBox{padding: 20px;margin-top: 20px;background: #f5f5f5;border-radius: 13px;}
+.addBox p{font-size: 14px;color: #444;font-weight: 700;line-height: 1;}
+.addBox p:before{display: inline-block;content: '';width: 15px;height: 15px;vertical-align: top;margin: -1px 7px 0 0;background: url('assets/images/ico_plus.png');background-size: 15px;}
+.addBox a{display: block;font-size: 14px;color: #444;margin-top: 20px;}
+.notiAI{font-size: 11px;color: #757575;text-align: center;}
+</style>
+                                    <div class="addBox">
+                                        <p>이런질문은 어떠세요?</p>
+                                        <a href="#">신용정보법은 어떤 기관에서 관리되나요?</a>
+                                        <a href="#">신용정보법을 위반하면 어떤 처벌이 있을까요?</a>
+                                        <a href="#">신용정보를 확인하려면 어떻게 해야 하나요? </a>
+                                    </div>
+
+                                    <p class="notiAI">답변은 AI 모델로 생성되므로 중요한 내용은 반드시 재확인해 주세요</p>
+                                    <!-- notiAI : 마지막 답변의 맨 마지막에 추가됨. 답변이 여러개 일때 이전 답변에 있던 notiAI 는 삭제됨.  -->
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="bottomCont">
+                            <div class="inputCont">
+                                <div class="txtAreaBox">
+                                    <textarea id="msgInput" placeholder="궁금한 사항을 입력해주세요"></textarea>
+                                    <button type="button"><span>전송</span></button> <!-- 중지 : class="stop", 비활성화 : disabled -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--// content -->
+            </div>
+            <!-- //container -->
+
+        </div>
+    </body>
+</html>
