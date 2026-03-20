@@ -39,6 +39,10 @@
         .chat_list .question{display:flex;justify-content:flex-end;}
         .chat_list .question > span{width:auto;display:inline-block;max-width:80%;padding:0.3rem 1rem;text-align:center;border-radius:1.6rem;background:#b4b4b4;color:#222;}
         .chat_list .answer{overflow-x:hidden;margin-top:1rem;}
+        .chat_list .answer h3 { margin:1rem 0 0.5rem; font-size:1.5rem; font-weight:700; }
+        .chat_list .answer table{width:100%;border-collapse:collapse;margin:0.5rem 0;}
+        .chat_list .answer th, .chat_list .answer td{border:1px solid #ccc;padding:0.6rem 0.8rem;text-align:center;}
+        .chat_list .answer th{background:#efefef;font-weight:600;}
 
         .chat_input{display:flex;gap:0.5rem;margin:0 auto;min-height:5.6rem;justify-content:space-between;align-items:center;width:100%;padding:0.8rem;background:#fff;}
         .chat_input textarea{flex:1;}
@@ -116,6 +120,14 @@
 ## 📌 답변
 - 이건 mock 응답입니다
 - 사용자가 입력한 내용 기반으로 생성됨
+
+### 추가 상단 제목 (H3)
+2줄 3컬럼 테이블 예시:
+
+| 컬럼1 | 컬럼2 | 컬럼3 |
+| --- | --- | --- |
+| 데이터11 | 데이터12 | 데이터13 |
+| 데이터21 | 데이터22 | 데이터23 |
 
 * 리스트1
 * 리스트2
