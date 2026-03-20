@@ -153,31 +153,17 @@
                     item.style.height = '';
                 });
 
-                // mock 응답 생성
+                // 사용자 질문 메시지 추가
+                const userLi = document.createElement('li');
+                userLi.className = 'chat_item';
+                userLi.innerHTML = `
+                    <div class="question"><span>${inputText}</span></div>
+                `;
+                chatList.appendChild(userLi);
+
+                // mock 응답 생성 및 렌더링
                 const response = createMockResponse(inputText);
                 renderChat(response);
-
-                // 새 메시지 생성
-                const qText = `
-                    <div class="question">
-                        <span>${inputText}</span>
-                    </div>
-                `;
-
-                // 임시 더미 답변
-                const aiAnswer = `
-                    <div class="answer">
-                        <h3>AI Answer</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                    </div>
-                `;
-
-                const li = document.createElement('li');
-                li.className = 'chat_item';
-                li.style.height = '100dvh';
-                li.innerHTML = qText + aiAnswer;
-
-                chatList.appendChild(li);
 
                 li.scrollIntoView({
                     behavior: 'smooth',
